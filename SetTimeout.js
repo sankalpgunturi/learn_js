@@ -44,3 +44,18 @@ function x() {
     console.log("Namaste"); //Prints this first
 }
 x();
+
+//Solution 2
+
+function x() {
+    for (var i = 1; i <= 5; i++) {
+        function close(i) {
+            setTimeout(function(){
+                console.log(i);
+            }, i * 1000);
+        }
+        close(i);
+    }
+    console.log("Namaste"); //Prints this first
+}
+x();
