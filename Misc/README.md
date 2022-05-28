@@ -3,5 +3,8 @@ My efforts in learning JS
 I am getting started with a course by Akshay Saini:
 https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP
 
-I am getting started with a course by Himesh Choudhary:
+Learning a little more from Himesh Choudhary:
 https://courses.learncodeonline.in/learn/home/Complete-Javascript-course/
+
+Learning basics of HTML from Mosh:
+https://www.youtube.com/watch?v=qz0aGYrrlhU
