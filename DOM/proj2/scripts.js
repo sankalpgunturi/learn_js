@@ -6,4 +6,10 @@ const pink = document.querySelector(".pink");
 
 const center = document.querySelector(".center");
 
-console.log(window.getComputedStyle(red));
+// console.log(window.getComputedStyle(red).backgroundColor);
+
+const getBGColor = (selectedElement) => {
+    return window.getComputedStyle(selectedElement).backgroundColor
+};
+
+console.log(getBGColor(orange));
