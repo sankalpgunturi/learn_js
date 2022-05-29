@@ -8,3 +8,6 @@ https://courses.learncodeonline.in/learn/home/Complete-Javascript-course/
 
 Learning basics of HTML from Mosh:
 https://www.youtube.com/watch?v=qz0aGYrrlhU
+
+Learning more on HTML and CSS:
+https://www.youtube.com/watch?v=G3e-cpL7ofc
