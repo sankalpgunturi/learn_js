@@ -1,0 +1,23 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "description": "A simple note-taking app, created using vanilla JS and Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sankalpgunturi/learn_js.git#main"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "Sankalp Gunturi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sankalpgunturi/learn_js/issues"
+  },
+  "homepage": "https://github.com/sankalpgunturi/learn_js/tree/main#readme"
+}
