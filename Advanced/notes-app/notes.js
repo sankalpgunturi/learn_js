@@ -1,5 +1,6 @@
 const fs = require("fs");
-const { title } = require("process");
+const chalk = require("chalk");
+
 function getNotes() {
   return "Your notes...";
 }
@@ -37,7 +38,29 @@ const loadNotes = function () {
   }
 };
 
+const removeNote = function (title) {
+  const notes = loadNotes();
+  const notesToKeep = notes.filter(function (note) {
+    return note.title !== title;
+  });
+  // My code
+  // if (
+  //   Object.keys(notes.filter((note) => note.title === title)).length === 0
+  // ) {
+  //   console.log(chalk.red("No note found!"));
+  // } else {
+  //   console.log(chalk.green("Note removed!"));
+  // }
+  if (notes.length > notesToKeep.length) {
+    console.log(chalk.green.inverse("Note removed!"));
+    saveNotes(notesToKeep);
+  } else {
+    console.log(chalk.red.inverse("No note found!"));
+  }
+};
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
+  removeNote: removeNote,
 };
