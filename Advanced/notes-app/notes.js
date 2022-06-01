@@ -38,7 +38,7 @@ const loadNotes = () => {
 
 const removeNote = (title) => {
   const notes = loadNotes();
-  const notesToKeep = notes.filter( (note) => note.title !== title);
+  const notesToKeep = notes.filter((note) => note.title !== title);
   // My code
   // if (
   //   Object.keys(notes.filter((note) => note.title === title)).length === 0
@@ -58,12 +58,24 @@ const removeNote = (title) => {
 const listNotes = () => {
   const notes = loadNotes();
   console.log(chalk.bold.magenta("YOUR NOTES:"));
-  notes.forEach((note) => console.log(chalk.blue(note.title))); 
-}
+  notes.forEach((note) => console.log(chalk.blue(note.title)));
+};
+
+const readNote = (title) => {
+  const notes = loadNotes();
+  try {
+    const requiredNote = notes.find((note) => note.title === title);
+    console.log(chalk.italic.bold.inverse(requiredNote.title));
+    console.log(requiredNote.body);
+  } catch (e) {
+    console.log(chalk.red.inverse("No note found with the given title!"));
+  }
+};
 
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
   listNotes: listNotes,
+  readNote: readNote,
 };
