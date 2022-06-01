@@ -5,30 +5,28 @@ function getNotes() {
   return "Your notes...";
 }
 
-const addNote = function (title, body) {
+const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(function (note) {
-    return note.title === title;
-  });
+  const duplicateNotes = notes.filter((note) => note.title === title);
 
   if (duplicateNotes.length === 0) {
     notes.push({
       title: title,
       body: body,
     });
+    saveNotes(notes);
+    console.log(chalk.green.inverse("New note added!"));
   } else {
-    console.log("Note title already taken!");
+    console.log(chalk.red.inverse("Note title already taken!"));
   }
-
-  saveNotes(notes);
 };
 
-const saveNotes = function (notes) {
+const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
   fs.writeFileSync("notes.json", dataJSON);
 };
 
-const loadNotes = function () {
+const loadNotes = () => {
   try {
     const dataBuffer = fs.readFileSync("notes.json");
     const dataJSON = dataBuffer.toString();
@@ -38,11 +36,9 @@ const loadNotes = function () {
   }
 };
 
-const removeNote = function (title) {
+const removeNote = (title) => {
   const notes = loadNotes();
-  const notesToKeep = notes.filter(function (note) {
-    return note.title !== title;
-  });
+  const notesToKeep = notes.filter( (note) => note.title !== title);
   // My code
   // if (
   //   Object.keys(notes.filter((note) => note.title === title)).length === 0
@@ -59,8 +55,15 @@ const removeNote = function (title) {
   }
 };
 
+const listNotes = () => {
+  const notes = loadNotes();
+  console.log(chalk.bold.magenta("YOUR NOTES:"));
+  notes.forEach((note) => console.log(chalk.blue(note.title))); 
+}
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
+  listNotes: listNotes,
 };
