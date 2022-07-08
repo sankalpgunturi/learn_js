@@ -1,4 +1,5 @@
 # learn_js
+
 My efforts in learning JS
 I am getting started with a course by Akshay Saini:
 https://www.youtube.com/playlist?list=PLlasXeu85E9cQ32gLCvAvr9vNaUccPVNP
@@ -12,5 +13,5 @@ https://www.youtube.com/watch?v=qz0aGYrrlhU
 Learning more on HTML and CSS:
 https://www.youtube.com/watch?v=G3e-cpL7ofc
 
-Learning Node JS, Express, MogoDB, Jest and more JS:
+Learning Node JS, Express, MongoDB, Jest and more JS:
 https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
