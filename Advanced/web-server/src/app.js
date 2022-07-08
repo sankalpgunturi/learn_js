@@ -25,9 +25,15 @@ app.get("", (req, res) => {
 });
 
 app.get("/weather", (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      error: "You must provide address!",
+    });
+  }
   res.send({
     forecast: "It is snowing",
     location: "Philadelphia",
+    address: req.query.address,
   });
 });
 
