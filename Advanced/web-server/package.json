@@ -15,8 +15,5 @@
     "hbs": "^4.0.1",
     "request": "^2.88.2",
     "requests": "^0.3.0"
-  },
-  "devDependencies": {
-    "nodemon": "^1.2.0"
   }
 }
