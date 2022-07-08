@@ -31,6 +31,19 @@ app.get("/weather", (req, res) => {
   });
 });
 
+app.get("/products", (req, res) => {
+  if (!req.query.search) {
+    return res.send({
+      error: "You must provide a search term!",
+    });
+  }
+
+  console.log(req.query.search);
+  res.send({
+    products: [],
+  });
+});
+
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Me",
@@ -42,12 +55,24 @@ app.get("/help", (req, res) => {
   res.render("help", {
     title: "Help",
     name: "Sankalp Gunturi",
-    helpText: "This is some helpful text!",
+    helpText: "Help page.",
+  });
+});
+
+app.get("/help/*", (req, res) => {
+  res.render("404", {
+    title: "404",
+    name: "Sankalp Gunturi",
+    errorMessage: "Help article not found.",
   });
 });
 
 app.get("*", (req, res) => {
-  res.send("My 404 Page");
+  res.render("404", {
+    title: "404",
+    name: "Sankalp Gunturi",
+    errorMessage: "Page not found.",
+  });
 });
 
 app.listen(3000, () => {
