@@ -9,7 +9,7 @@ app.use(express.static(publicDirectoryPath));
 
 app.get("", (req, res) => {
   res.render("index", {
-    title: "Weather App",
+    title: "Weather",
     name: "Sankalp Gunturi",
   });
 });
@@ -18,6 +18,19 @@ app.get("/weather", (req, res) => {
   res.send({
     forecast: "It is snowing",
     location: "Philadelphia",
+  });
+});
+
+app.get("/about", (req, res) => {
+  res.render("about", {
+    title: "About Me",
+    name: "Sankalp Gunturi",
+  });
+});
+
+app.get("/help", (req, res) => {
+  res.render("help", {
+    helpText: "This is some helpful text!",
   });
 });
 
