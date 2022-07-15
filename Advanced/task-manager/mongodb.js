@@ -19,37 +19,22 @@ MongoClient.connect(
 
     const db = client.db(databaseName);
 
-    // db.collection("users")
-    //   .updateOne(
-    //     {
-    //       _id: new ObjectId("62c8e659fee55e4f34567f2f"),
-    //     },
-    //     {
-    //       $inc: {
-    //         age: -1,
-    //       },
-    //     }
-    //   )
-    //   .then((result) => {
-    //     console.log(result);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
-    db.collection("tasks")
-      .updateMany(
-        {
-          completed: false,
-        },
-        {
-          $set: {
-            completed: true,
-          },
-        }
-      )
+    db.collection("users")
+      .deleteMany({
+        age: 24,
+      })
       .then((result) => {
-        console.log(result.modifiedCount);
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    db.collection("tasks")
+      .deleteOne({
+        description: "To check out laundry",
+      })
+      .then((result) => {
+        console.log(result);
       })
       .catch((error) => {
         console.log(error);
