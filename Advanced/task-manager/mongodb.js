@@ -9,10 +9,6 @@ const { MongoClient, ObjectId } = require("mongodb");
 const connectionURL = "mongodb://127.0.0.1:27017";
 const databaseName = "task-manager";
 
-const id = new ObjectId();
-console.log(id.id.length);
-console.log(id.toHexString().length);
-
 MongoClient.connect(
   connectionURL,
   { useNewUrlParser: true },
@@ -23,61 +19,35 @@ MongoClient.connect(
 
     const db = client.db(databaseName);
 
-    db.collection("users").insertOne(
-      {
-        _id: id,
-        name: "Vikram",
-        age: 69,
-      },
-      (error, result) => {
+    db.collection("tasks").findOne(
+      { _id: new ObjectId("62d12a671eeb7e73e01c23ec") },
+      (error, task) => {
         if (error) {
-          return console.log("Unable to insert user!");
+          console.log("unable to fetch");
         }
 
-        console.log(result.insertedId);
+        console.log(task);
       }
     );
 
-    // db.collection("users").insertMany(
-    //   [
-    //     {
-    //       name: "Jen",
-    //       age: 28,
-    //     },
-    //     {
-    //       name: "Gunther",
-    //       age: 27,
-    //     },
-    //   ],
-    //   (error, result) => {
+    db.collection("tasks")
+      .find({ completed: false })
+      .toArray((error, tasks) => {
+        if (error) {
+          console.log("unable to fetch");
+        }
+
+        console.log(tasks);
+      });
+
+    // db.collection("users")
+    //   .find({ name: "Unie" })
+    //   .count((error, count) => {
     //     if (error) {
-    //       return console.log("Unable to insert documents!");
+    //       console.log("unable to fetch");
     //     }
 
-    //     console.log(result.insertedId);
-    //   }
-    // );
-
-    // db.collection("tasks").insertMany(
-    //   [
-    //     {
-    //       description: "To buy clothes",
-    //       completed: true,
-    //     },
-    //     {
-    //       description: "To check out laundry",
-    //       completed: false,
-    //     },
-    //     {
-    //       description: "To go to the gym",
-    //       completed: false,
-    //     },
-    //   ],
-    //   (error, result) => {
-    //     if (error) {
-    //       return console.log("Unable to insert documents!");
-    //     }
-    //   }
-    // );
+    //     console.log(count);
+    //   });
   }
 );
