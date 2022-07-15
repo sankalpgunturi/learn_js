@@ -19,35 +19,40 @@ MongoClient.connect(
 
     const db = client.db(databaseName);
 
-    db.collection("tasks").findOne(
-      { _id: new ObjectId("62d12a671eeb7e73e01c23ec") },
-      (error, task) => {
-        if (error) {
-          console.log("unable to fetch");
-        }
-
-        console.log(task);
-      }
-    );
+    // db.collection("users")
+    //   .updateOne(
+    //     {
+    //       _id: new ObjectId("62c8e659fee55e4f34567f2f"),
+    //     },
+    //     {
+    //       $inc: {
+    //         age: -1,
+    //       },
+    //     }
+    //   )
+    //   .then((result) => {
+    //     console.log(result);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
 
     db.collection("tasks")
-      .find({ completed: false })
-      .toArray((error, tasks) => {
-        if (error) {
-          console.log("unable to fetch");
+      .updateMany(
+        {
+          completed: false,
+        },
+        {
+          $set: {
+            completed: true,
+          },
         }
-
-        console.log(tasks);
+      )
+      .then((result) => {
+        console.log(result.modifiedCount);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-
-    // db.collection("users")
-    //   .find({ name: "Unie" })
-    //   .count((error, count) => {
-    //     if (error) {
-    //       console.log("unable to fetch");
-    //     }
-
-    //     console.log(count);
-    //   });
   }
 );
