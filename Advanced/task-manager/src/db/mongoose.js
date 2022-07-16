@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const validator = require("validator");
 
 mongoose.connect("mongodb://127.0.0.1:27017/task-manager-api", {
   useNewUrlParser: true,
@@ -8,15 +9,17 @@ mongoose.connect("mongodb://127.0.0.1:27017/task-manager-api", {
 const Task = mongoose.model("Task", {
   description: {
     type: String,
+    required: true,
+    trim: true,
   },
   completed: {
     type: Boolean,
+    default: false,
   },
 });
 
 const taskOne = new Task({
-  description: "Clean house",
-  completed: false,
+  description: "Go to the gym",
 });
 
 taskOne
@@ -28,19 +31,49 @@ taskOne
     console.log(error);
   });
 
-  
-// const User = mongoose.model("User", {
-//   name: {
-//     type: String,
-//   },
-//   age: {
-//     type: Number,
-//   },
-// });
+const User = mongoose.model("User", {
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    lowercase: true,
+    validate(value) {
+      if (!validator.isEmail(value)) {
+        throw new Error("Email is invalid.");
+      }
+    },
+  },
+  age: {
+    type: Number,
+    default: 0,
+    validate(val) {
+      if (val < 0) {
+        throw new Error("Age must be a positive number!");
+      }
+    },
+  },
+  password: {
+    type: String,
+    required: true,
+    trim: true,
+    minlength: 7,
+    validate(value) {
+      if (value.toLowerCase().includes("password")) {
+        throw new Error("Password should not contain the string 'password'!");
+      }
+    },
+  },
+});
 
 // const me = new User({
-//   name: "Sankalp",
-//   age: "Mike",
+//   name: "  Sankalp Gunturi  ",
+//   email: "SANKALP@GUNTURI.COM   ",
+//   password: "       Password123      ",
 // });
 
 // me.save()
