@@ -1,0 +1,17 @@
+My experience with Heroic:
+
+1) I always create a temporary email to signup with heroic. Remember tempail.com is blocked.
+2) Then you'll receive a confirmation email to the temp mail to confirm. Once you do that, you'll be re-directed to the dashboard. Don't close this window.
+3) Now, you need to authenticate from cli using: "heroku auth:login". This should ideally open a tab in the default browser, asking you to authenticate by just clicking on a button.
+4) If it did not re-direct, you'll still find the URL in the terminal, which you can copy and paste.
+5) Now, you need to do some git commands from VS Code.
+6) git init --> To initialise heroku's git
+7) git create <Unique_app_name>
+8) (Optional) git config:set --app=<Unique_app_name> key1=value1 key2=value2
+9) git add . --> Stage all changes to heroku's git
+10) git commit -m "Commit_Message" --> Commit changes to heroku's git
+11) git push heroku master
+
+Debugging:
+- When the log says build dependencies are missing, that means it is unable to locate the package-lock.josn and package.json files. And in my experience it means heroku is looking in the parent folder. All you have to do is repeat steps from 6 to 11.
+- Try to remove devDependencies for any other error.
