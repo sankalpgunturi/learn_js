@@ -1,6 +1,6 @@
 My experience with Heroic:
 
-1) I always create a temporary email to signup with heroic. Remember tempail.com is blocked.
+1) I always create a temporary email to signup with heroku. Remember tempail.com is blocked.
 2) Then you'll receive a confirmation email to the temp mail to confirm. Once you do that, you'll be re-directed to the dashboard. Don't close this window.
 3) Now, you need to authenticate from cli using: "heroku auth:login". This should ideally open a tab in the default browser, asking you to authenticate by just clicking on a button.
 4) If it did not re-direct, you'll still find the URL in the terminal, which you can copy and paste.
