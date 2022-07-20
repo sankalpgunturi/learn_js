@@ -6,7 +6,7 @@ My experience with Heroic:
 4) If it did not re-direct, you'll still find the URL in the terminal, which you can copy and paste.
 5) Now, you need to do some git commands from VS Code.
 6) git init --> To initialise heroku's git
-7) git create <Unique_app_name>
+7) heroku create <Unique_app_name>
 8) (Optional) git config:set --app=<Unique_app_name> key1=value1 key2=value2
 9) git add . --> Stage all changes to heroku's git
 10) git commit -m "Commit_Message" --> Commit changes to heroku's git
