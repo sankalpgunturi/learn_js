@@ -17,3 +17,5 @@ Learning Node JS, Express, MongoDB, Jest and more JS:
 https://www.udemy.com/course/the-complete-nodejs-developer-course-2/
 
 Check out my weather-app here: https://sgunturi-weather-app.herokuapp.com/
+
+Check out my chat-room-app here: https://sgunturi-new-chat.herokuapp.com/
