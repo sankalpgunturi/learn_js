@@ -20,7 +20,7 @@ app.use(express.static(publicDirectoryPath));
 io.on("connection", (socket) => {
   console.log("New WebSocket Connection");
 
-  socket.emit("message", generateMessage("Welcome"));
+  socket.emit("message", generateMessage("Welcome!"));
   socket.broadcast.emit("message", generateMessage("A new user has joined!"));
 
   socket.on("sendMessage", (message, callback) => {
